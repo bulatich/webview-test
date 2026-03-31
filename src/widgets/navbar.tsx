@@ -1,30 +1,24 @@
-import { useState, useCallback } from "react";
+
 import {
-  Home,
-  Search,
-  User,
   Settings,
-  MessageCircle,
-  Heart,
   Bell,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
-const navItems = [
-  { href: "/", label: "Home", icon: Home },
-  { href: "/search", label: "Search", icon: Search },
-  { href: "/messages", label: "Messages", icon: MessageCircle },
-  { href: "/likes", label: "Likes", icon: Heart },
-  { href: "/profile", label: "Profile", icon: User },
-];
+// const navItems = [
+//   { href: "/", label: "Home", icon: Home },
+//   { href: "/search", label: "Search", icon: Search },
+//   { href: "/messages", label: "Messages", icon: MessageCircle },
+//   { href: "/likes", label: "Likes", icon: Heart },
+//   { href: "/profile", label: "Profile", icon: User },
+// ];
 
 /**
  * Mobile webview navbar with bottom tab navigation (modern mobile UX pattern)
  */
 export function MobileNavbar() {
-  const [activeTab, setActiveTab] = useState("/");
 
   return (
     <div className="flex h-full flex-col bg-background md:hidden h-dvh overflow-hidden">
