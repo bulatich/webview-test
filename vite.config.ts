@@ -1,13 +1,20 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import path from "path";
+import react, { reactCompilerPreset } from "@vitejs/plugin-react";
+import babel from "@rolldown/plugin-babel";
+import tailwindcss from "@tailwindcss/vite";
 
+// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  server: {
-    port: 4173,
-    host: true
+  resolve: {
+    alias: [
+      { find: "@", replacement: path.resolve(__dirname, "src") },
+      { find: "~", replacement: path.resolve(__dirname, "src") },
+    ],
   },
-  build: {
-    target: "es2021"
-  }
+  plugins: [
+    react(),
+    babel({ presets: [reactCompilerPreset()] }),
+    tailwindcss(),
+  ],
 });
