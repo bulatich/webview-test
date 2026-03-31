@@ -27,9 +27,9 @@ export function MobileNavbar() {
   const [activeTab, setActiveTab] = useState("/");
 
   return (
-    <div className="flex h-screen flex-col bg-background md:hidden">
+    <div className="flex h-full flex-col bg-background md:hidden overflow-hidden" style={{ height: '100dvh' }}>
       {/* Top Header */}
-      <header className="sticky top-0 z-40 border-b bg-background/95 backdrop-blur">
+      <header className="relative z-40 border-b bg-background/95" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
         <div className="flex h-14 items-center justify-between px-4">
           <div className="text-lg font-bold">My App</div>
           <div className="flex items-center gap-2">
@@ -59,7 +59,7 @@ export function MobileNavbar() {
       </main>
 
       {/* Bottom Tab Navigation */}
-      <nav className="fixed bottom-0 left-0 right-0 z-40 border-t bg-background/95 backdrop-blur md:hidden">
+      <nav className="relative z-40 border-t bg-background/95 md:hidden" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
         <div className="flex items-center justify-around">
           {navItems.map((item) => {
             const Icon = item.icon;
