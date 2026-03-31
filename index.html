@@ -13,6 +13,13 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      // Disable animations on page load
+      document.documentElement.classList.add('js-loading');
+      window.addEventListener('load', () => {
+        document.documentElement.classList.remove('js-loading');
+      });
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

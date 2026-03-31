@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import {
   Home,
   Search,
@@ -25,6 +25,12 @@ const navItems = [
  */
 export function MobileNavbar() {
   const [activeTab, setActiveTab] = useState("/");
+
+  // Memoize handler to prevent unnecessary re-renders
+  const handleTabClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setActiveTab(href);
+  }, []);
 
   return (
     <div className="flex h-full flex-col bg-background md:hidden overflow-hidden" style={{ height: '100dvh' }}>
@@ -69,11 +75,8 @@ export function MobileNavbar() {
               <a
                 key={item.href}
                 href={item.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setActiveTab(item.href);
-                }}
-                className={`flex flex-1 flex-col items-center gap-1 py-3 text-xs font-medium transition-colors ${
+                onClick={(e) => handleTabClick(e, item.href)}
+                className={`flex flex-1 flex-col items-center gap-1 py-3 text-xs font-medium will-change-colors ${
                   isActive
                     ? "text-primary"
                     : "text-muted-foreground hover:text-foreground"
