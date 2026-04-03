@@ -1,9 +1,8 @@
 import { MobileNavbar } from './widgets/navbar'
 import { Header } from './widgets/header'
-import { BrowserRouter, Routes, Route, RouterProvider } from "react-router";
+import { BrowserRouter, Routes, Route } from "react-router";
 import About from './About';
-import AppLayout from './AppLayout';
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence } from "motion/react";
 
 
 

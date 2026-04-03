@@ -1,9 +1,6 @@
-import { AnimatePresence, motion } from "motion/react";
-import { useLocation } from "react-router";
+import { motion } from "motion/react";
 
 export default function About() {
-const location = useLocation()
-
   return (
 
         <motion.div
