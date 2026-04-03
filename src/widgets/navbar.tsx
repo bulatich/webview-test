@@ -1,37 +1,51 @@
+import HomeIcon from '../assets/navbar/home.svg'
+import CartIcon from '../assets/navbar/cart.svg'
+import CatalogIcon from '../assets/navbar/catalog.svg'
+import ProfileIcon from '../assets/navbar/profile.svg'
+import { useState } from 'react'
+import { motion } from "motion/react";
+
+
+  const items = [
+    { label: "HOME", active: true, icon: HomeIcon },
+    { label: "CATALOG", active: false, icon: CatalogIcon },
+    { label: "CART", active: false, icon: CartIcon },
+    { label: "PROFILE", active: false, icon: ProfileIcon },
+  ];
+
 
 export function MobileNavbar() {
-  const items = [
-    { label: "Home", active: true },
-    { label: "Browse", active: false },
-    { label: "Inbox", active: false },
-    { label: "Profile", active: false },
-  ];
-  return (
-      <div className="min-h-screen bg-zinc-950 text-white pb-20">
-        <main className="p-4">
-          <div className="mx-auto max-w-md rounded-2xl bg-zinc-900 p-4 ring-1 ring-white/10">
-            <h1 className="text-lg font-semibold">Webview App</h1>
-            <p className="mt-2 text-sm text-zinc-400">
-              Content goes here.
-            </p>
-          </div>
-        </main>
 
+  const [active, setActive] = useState<string>("HOME")
+
+  const handleSetActive = (label: string) => {
+    setActive(label)
+  }
+
+  
+
+  return (          
+      <div>
         <nav
-            className="fixed inset-x-0 bottom-0 z-50 mx-auto w-full max-w-md border-t border-white/10 bg-zinc-900/95 backdrop-blur"
+            className="fixed inset-x-0 bottom-0 z-50 mx-auto w-full max-w-md"
             style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
         >
-          <div className="grid grid-cols-4">
+          <div className="flex items-center justify-center gap-1">
             {items.map((item) => (
-                <button
+                <motion.button
+                 whileTap={{ scale: 0.94, opacity: 0.92 }}
+  transition={{ duration: 0.12 }}
                     key={item.label}
-                    className={`flex flex-col items-center justify-center gap-1 py-3 text-[11px] font-medium transition ${
-                        item.active ? "text-cyan-400" : "text-zinc-400 hover:text-white"
-                    }`}
+                    className={`  w-18 h-13 flex flex-col items-center justify-center ${item.label === active ? 'bg-linear-to-r from-[#0846ED] to-[#859AFF] rounded-xl': null}`}
+                    onClick={() => handleSetActive(item.label)}
                 >
-                  <div className="h-5 w-5 rounded-full border border-current opacity-80" />
-                  <span>{item.label}</span>
-                </button>
+                  <div>
+                    <img src={item.icon} alt={item.label} className="w-5 h-5" />
+
+                    </div>
+
+                  <span className='text-[#585781] font-semibold text-xs'>{item.label}</span>
+                </motion.button>
             ))}
           </div>
         </nav>
