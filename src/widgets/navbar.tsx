@@ -27,10 +27,10 @@ export function MobileNavbar() {
   return (          
       <div>
         <nav
-            className="fixed inset-x-0 bottom-0 z-50 mx-auto w-full max-w-md"
+            className="fixed inset-x-0 bottom-0 z-50 mx-auto w-full max-w-md p-2"
             style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
         >
-          <div className="flex items-center justify-center gap-1">
+          <div className="flex items-center justify-between gap-1">
             {items.map((item) => (
                 <motion.button
                  whileTap={{ scale: 0.94, opacity: 0.92 }}
@@ -52,3 +52,4 @@ export function MobileNavbar() {
       </div>
   );
 }
+ 
