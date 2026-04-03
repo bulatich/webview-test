@@ -36,7 +36,7 @@ export function MobileNavbar() {
                  whileTap={{ scale: 0.94, opacity: 0.92 }}
   transition={{ duration: 0.12 }}
                     key={item.label}
-                    className={`  w-18 h-13 flex flex-col items-center justify-center ${item.label === active ? 'bg-linear-to-r from-[#0846ED] to-[#859AFF] rounded-xl': null}`}
+                    className={`  w-18 h-13 flex flex-col items-center justify-center text-[#585781] ${item.label === active ? 'bg-linear-to-r from-[#0846ED] to-[#859AFF] rounded-xl text-white': null}`}
                     onClick={() => handleSetActive(item.label)}
                 >
                   <div>
@@ -44,7 +44,7 @@ export function MobileNavbar() {
 
                     </div>
 
-                  <span className='text-[#585781] font-semibold text-xs'>{item.label}</span>
+                  <span className=' font-semibold text-xs'>{item.label}</span>
                 </motion.button>
             ))}
           </div>
