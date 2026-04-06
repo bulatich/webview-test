@@ -26,7 +26,7 @@ export function MobileNavbar() {
 
   
 
-  return (          
+  return (  
       <div>
         <nav
             className="fixed inset-x-0 bottom-0 z-50 mx-auto w-full max-w-md p-2"
@@ -51,7 +51,7 @@ export function MobileNavbar() {
             ))}
           </div>
         </nav>
-      </div>
+      </div>  
   );
 }
  

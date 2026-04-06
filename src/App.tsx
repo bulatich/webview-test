@@ -16,10 +16,10 @@ function App() {
            <BrowserRouter>
       <Header />
 {/* <AnimatePresence mode="wait"> */}
-<div className=''>
+<div className='top-[60px] relative p-4'>
     <Routes>
         
-        {/* <Route path="/about" element={<About />} /> */}
+        {/* <Route path="/about" element={<About />} /> */} 
 
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
