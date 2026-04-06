@@ -1,9 +1,13 @@
 import { MobileNavbar } from './widgets/navbar'
 import { Header } from './widgets/header'
 import { BrowserRouter, Routes, Route } from "react-router";
-import About from './About';
 import { AnimatePresence } from "motion/react";
+import { lazy } from 'react';
 
+const Home = lazy(() => import('./pages/home'));
+const Cart = lazy(() => import('./pages/cart'));
+const Catalog = lazy(() => import('./pages/catalog'));
+const Profile = lazy(() => import('./pages/profile'));
 
 
 function App() {
@@ -11,14 +15,21 @@ function App() {
     <>
            <BrowserRouter>
       <Header />
-<AnimatePresence mode="wait">
+{/* <AnimatePresence mode="wait"> */}
+<div className=''>
     <Routes>
         
-        <Route path="/about" element={<About />} />
+        {/* <Route path="/about" element={<About />} /> */}
+
+        <Route path="/" element={<Home />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/catalog" element={<Catalog />} />
+        <Route path="/profile" element={<Profile />} />
        
 
     </Routes>
- </AnimatePresence>
+    </div>
+ {/* </AnimatePresence> */}
       <MobileNavbar />
         </BrowserRouter>
     </>

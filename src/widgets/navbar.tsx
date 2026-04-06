@@ -1,16 +1,18 @@
-import HomeIcon from '../assets/navbar/home.svg'
-import CartIcon from '../assets/navbar/cart.svg'
-import CatalogIcon from '../assets/navbar/catalog.svg'
-import ProfileIcon from '../assets/navbar/profile.svg'
+
 import { useState } from 'react'
 import { motion } from "motion/react";
 
+import { HomeIcon } from '@/shared/ui/icons/home-icon';
+import { CartIcon } from '@/shared/ui/icons/cart-icon';
+import { CatalogIcon } from '@/shared/ui/icons/catalog-icon';
+import { ProfileIcon } from '@/shared/ui/icons/profile-icon';
+
 
   const items = [
-    { label: "HOME", active: true, icon: HomeIcon },
-    { label: "CATALOG", active: false, icon: CatalogIcon },
-    { label: "CART", active: false, icon: CartIcon },
-    { label: "PROFILE", active: false, icon: ProfileIcon },
+    { label: "HOME", active: true, icon: <HomeIcon /> },
+    { label: "CATALOG", active: false, icon: < CatalogIcon /> },
+    { label: "CART", active: false, icon: <CartIcon /> },
+    { label: "PROFILE", active: false, icon: <ProfileIcon /> },
   ];
 
 
@@ -40,7 +42,7 @@ export function MobileNavbar() {
                     onClick={() => handleSetActive(item.label)}
                 >
                   <div>
-                    <img src={item.icon} alt={item.label} className="w-5 h-5" />
+                     {item.icon}
 
                     </div>
 
