@@ -17,11 +17,9 @@ export const Banner = () => {
     return Math.max(min, Math.min(value, max))
   }
     return (
-        <div>
         <div >
           <div
           style={{
-        width: SLIDE_WIDTH,
         overflow: "hidden",
         touchAction: "pan-y", // чтобы вертикальный скролл страницы не ломался
       }}
@@ -29,7 +27,7 @@ export const Banner = () => {
            
           >
              <motion.div
-              className="max-w-[358px] min-h-[240px] w-full bg-linear-to-r from-[#0846ED] to-[#859AFF] rounded-[20px] flex items-center justify-center"
+              
         ref={trackRef}
         drag="x"
         dragConstraints={{
@@ -65,6 +63,7 @@ export const Banner = () => {
       >
         {slides.map((slide) => (
           <div
+          className="max-w-[358px] min-h-[240px] w-full bg-linear-to-r from-[#0846ED] to-[#859AFF] rounded-[20px] flex items-center justify-center"
             key={slide.id}
             style={{
               width: SLIDE_WIDTH,
@@ -81,6 +80,6 @@ export const Banner = () => {
       </motion.div>
           </div>
         </div>
-        </div>
+        
     )
 }
