@@ -1,7 +1,7 @@
 import { MobileNavbar } from './widgets/navbar'
 import { Header } from './widgets/header'
 import { BrowserRouter, Routes, Route } from "react-router";
-import { AnimatePresence } from "motion/react";
+// import { AnimatePresence } from "motion/react";
 import { lazy } from 'react';
 
 const Home = lazy(() => import('./pages/home'));
