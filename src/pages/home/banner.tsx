@@ -13,19 +13,14 @@ export const Banner = () => {
   const [index, setIndex] = useState(0)
   const trackRef = useRef(null)
 
+
   function clamp(value: number, min: number, max: number) {
     return Math.max(min, Math.min(value, max))
   }
     return (
         <div >
           <div
-          style={{
-        overflow: "hidden",
-        touchAction: "pan-y", // чтобы вертикальный скролл страницы не ломался
-      }}
-         
-           
-          >
+          className="touch-pan-y overflow-hidden">
              <motion.div
               
         ref={trackRef}
@@ -63,18 +58,21 @@ export const Banner = () => {
       >
         {slides.map((slide) => (
           <div
-          className="max-w-[358px] min-h-[240px] w-full bg-linear-to-r from-[#0846ED] to-[#859AFF] rounded-[20px] flex items-center justify-center"
+          className="min-w-[358px] min-h-[240px] 
+          w-full bg-linear-to-r from-[#0846ED] to-[#859AFF] rounded-[20px] mr-10"
             key={slide.id}
             style={{
               width: SLIDE_WIDTH,
-              flex: "0 0 320px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
               userSelect: "none",
             }}
           >
-            {slide.title}
+            <div className="p-4">
+           <div className="text-[#fff] text-xs">SUMMER EDITION</div>
+           <div className="text-[#fff] text-4xl font-bold break-all w-44.6 mt-4">The New Standard of Minimal</div>
+           <button className="rounded-xl w-30 bg-[#fff] mt-4">
+            <div className="p-2">SHOP NOW</div>
+           </button>
+</div>
           </div>
         ))}
       </motion.div>
